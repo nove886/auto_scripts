@@ -1,4 +1,4 @@
-# auto_weirdhost  kr的ck登录续期-多账号版
+# auto_weirdhost  kr的ck登录续期-多账号版---网站经常改东西，已放弃，不跟他玩了
 
 
 你需要做以下修改：
