@@ -28,6 +28,9 @@ token2,session_id2,tg_token2,tg_chat_id2
 2、发 TG：email,password,tg_bot_token,tg_chat_id
 
 
+
+
+
 - HY2_PROXY_URL （可选，Hysteria2 代理 URL，）
 
 ```
