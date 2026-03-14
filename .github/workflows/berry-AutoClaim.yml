@@ -65,10 +65,9 @@ jobs:
           cd ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
           python berry.py
 
-      - name: ⏱️ 提交执行时间到私库
+      - name: ⏱️ 提交执行时间到公开库
         if: always()
         run: |
-          cd ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           mkdir -p ${{ env.PROJECT_DIR }} && echo "$(date +'%Y-%m-%d %H:%M:%S')" > ${{ env.PROJECT_DIR }}/time.txt
@@ -78,7 +77,6 @@ jobs:
           else
             TIMESTAMP=$(date +'%Y-%m-%d %H:%M:%S')
             git commit -m "⏱️ 更新 ${{ env.PROJECT_DIR }} 执行时间: $TIMESTAMP"
-            git fetch origin main
-            git push -f origin HEAD:main
-            echo "✅ 更改已推送到私库"
+            git push origin main
+            echo "✅ 更改已推送到公开库"
           fi
