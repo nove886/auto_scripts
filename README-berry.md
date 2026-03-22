@@ -21,21 +21,21 @@
 - BERRY_BATCH_ACCOUNTS （berryhost 的账号环境变量，必须填）
 
 ```
-BERRY_BATCH_ACCOUNTS=token,session_id,tg_token,tg_chat_id
-token2,session_id2,tg_token2,tg_chat_id2
+BERRY_BATCH_ACCOUNTS=token|accountName,session_id,tg_token,tg_chat_id
+token2|accountName2,session_id2
+token3,session_id3,tg_token3,tg_chat_id3
 ```
 
-
 ### 格式为:
- token,session_id,tg_token,tg_chat_id
+ token|accountName,session_id,tg_token,tg_chat_id
 
-
+其中 token|accountName 中的 accountName 是可选的。
 
 每行一套数据：
 
-1、不发 TG：token,session_id
+1、不发 TG：token|accountName,session_id 或 token,session_id
 
-2、发 TG： token,session_id,tg_token,tg_chat_id
+2、发 TG： token|accountName,session_id,tg_token,tg_chat_id 或 token,session_id,tg_token,tg_chat_id
 
 3、token(Discord 账号 Token)的取值方式如下：
 - 打开 Discord 网页版 → F12 → Network → 任意请求 → Headers → authorization
