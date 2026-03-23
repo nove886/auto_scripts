@@ -18,12 +18,12 @@ env:
 permissions:
   contents: write
 concurrency:
-  group: berry-claim
+  group: berry-claim-hsi
   cancel-in-progress: false
 jobs:
   claim:
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 25
     steps:
       - name: 📥 检出公开库代码
         uses: actions/checkout@v4
