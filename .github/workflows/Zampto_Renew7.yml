@@ -78,9 +78,8 @@ jobs:
 
       - name: 随机延迟
         run: |
-          delay=$((RANDOM % 120))
-          echo "随机延迟: ${delay}秒"
-          sleep $delay
+          echo "延迟 1 秒"
+          sleep 1
 
       - name: 执行续期
         working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
