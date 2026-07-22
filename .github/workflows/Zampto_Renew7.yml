@@ -21,7 +21,7 @@ jobs:
       TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
       TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       # 支持协议: vless, vmess, trojan, ss, hy2, tuic, anytls, socks5
-      PROXY_CONTENT: ${{ secrets.PROXY_CONTENT }}
+      PROXY_CONTENT: ${{ secrets.ZAMPTO_HY2_PROXY_URL }}
       SOCKS_PORT: ${{ secrets.SOCKS_PORT || '10808' }}
       SCREENSHOT_DIR: screenshots
       PROJECT_DIR: zampto
