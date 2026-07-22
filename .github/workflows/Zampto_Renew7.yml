@@ -87,12 +87,22 @@ jobs:
           SCREENSHOT_DIR: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}/${{ env.SCREENSHOT_DIR }}
         run: python Zampto_Renew7.py
 
+      - name: 压缩截图
+        if: always()
+        run: |
+          SCREENSHOT_PATH="${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}/${{ env.SCREENSHOT_DIR }}"
+          if [ -d "$SCREENSHOT_PATH" ] && [ "$(ls -A $SCREENSHOT_PATH 2>/dev/null)" ]; then
+            cd "${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}"
+            zip -r screenshots-${{ github.run_id }}.zip ${{ env.SCREENSHOT_DIR }}/
+            echo "✅ 截图已压缩为 screenshots-${{ github.run_id }}.zip"
+          fi
+
       - name: 上传截图
         if: always()
         uses: actions/upload-artifact@v4
         with:
           name: zampto-screenshots-${{ github.run_id }}
-          path: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}/${{ env.SCREENSHOT_DIR }}/
+          path: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}/screenshots-${{ github.run_id }}.zip
           retention-days: 7
 
       - name: 清理本地截图
