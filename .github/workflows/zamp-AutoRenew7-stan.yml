@@ -79,13 +79,13 @@ jobs:
 
       - name: 随机延迟
         run: |
-          delay=$((RANDOM % 10))
+          delay=$((RANDOM % 120))
           echo "随机延迟: ${delay}秒"
           sleep $delay
 
       - name: 执行续期
         working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
-        run: python zampto-renew.py.py
+        run: python zampto-renew.py
 
       - name: 上传截图
         if: always()
