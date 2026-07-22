@@ -18,8 +18,6 @@ jobs:
       cancel-in-progress: false
     env:
       ZAMPTO_BATCH: ${{ secrets.ZAMPTO_BATCH }}
-      TG_BOT_TOKEN: ${{ secrets.TG_BOT_TOKEN }}
-      TG_CHAT_ID: ${{ secrets.TG_CHAT_ID }}
       # 支持协议: vless, vmess, trojan, ss, hy2, tuic, anytls, socks5
       PROXY_CONTENT: ${{ secrets.ZAMPTO_HY2_PROXY_URL }}
       SOCKS_PORT: ${{ secrets.SOCKS_PORT || '10808' }}
@@ -62,6 +60,7 @@ jobs:
           fi
 
       - name: 安装代理
+        working-directory: ${{ github.repository_owner }}-${{ github.event.repository.name }}-${{ env.PROJECT_DIR }}
         run: |
           if [ -z "$PROXY_CONTENT" ]; then
             echo "[INFO] 未配置代理，直连模式"
